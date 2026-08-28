@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Enigma da Mansão Abandonada</title>
+
+<!-- =====================================================
+     MINI-COI
+     Precisa ser o PRIMEIRO script do <head> (pode vir
+     depois de meta/title, mas antes de qualquer outro
+     script/link/style).
+
+     Ele emula, via Service Worker, os cabeçalhos
+     Cross-Origin-Opener-Policy / Cross-Origin-Embedder-Policy
+     que o modo "worker" do PyScript precisa para o input()
+     funcionar (SharedArrayBuffer). Isso é o que permite o
+     jogo funcionar no GitHub Pages, que não deixa configurar
+     cabeçalhos HTTP customizados.
+     NÃO REMOVA — sem isso, o jogo trava com o erro:
+     "input() doesn't work when PyScript runs in the main thread"
+     ===================================================== -->
+<script src="./mini-coi.js" scope="./"></script>
+
+<!-- =====================================================
+     PYSCRIPT
+     Executa o jogo.py diretamente no navegador.
+     ===================================================== -->
+<link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+<script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, #0c0c10, #17161d);
+    color: #f1efe9;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 22px 18px 40px;
+  }
+
+  /* ---------- cabeçalho ---------- */
+  .cabecalho {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .cabecalho h1 {
+    margin: 0 0 6px 0;
+    font-size: clamp(26px, 4.5vw, 44px);
+    letter-spacing: 1px;
+    color: #e8c26a;
+  }
+  .cabecalho p {
+    margin: 0;
+    opacity: 0.7;
+    font-size: 15px;
+  }
+
+  /* ---------- HUD: vida / pontos / inventário ---------- */
+  .hud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 16px 0;
+  }
+  .hud-item {
+    background: #1c1b22;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  #status-vida { letter-spacing: 2px; }
+
+  /* ---------- área de mídia ---------- */
+  .midia {
+    background: #17161d;
+    border-radius: 16px;
+    padding: 14px;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.4);
+  }
+  #imagem-cena {
+    display: none;
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+  #video-intro {
+    display: none;
+    width: 100%;
+    max-height: 440px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background: #000;
+  }
+  #audio-fundo {
+    width: 100%;
+  }
+  #audio-efeito {
+    display: none;
+  }
+  .controle-audio {
+    margin-top: 6px;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.55;
+  }
+
+  /* ---------- terminal do jogo ---------- */
+  .terminal {
+    background: #131217;
+    border-radius: 16px;
+    padding: 16px;
+    min-height: 320px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.4);
+  }
+  .terminal py-terminal, .terminal script[type="py"] {
+    font-size: 15px;
+  }
+
+  /* ---------- tela inicial ---------- */
+  #tela-inicio {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: radial-gradient(circle at center, #26232c 0%, #100f13 55%, #08070a 100%);
+  }
+  .painel-inicio {
+    width: 100%;
+    max-width: 640px;
+    text-align: center;
+    padding: 44px 30px;
+    border-radius: 22px;
+    background: rgba(22, 20, 26, 0.9);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+  }
+  .icone-jogo { font-size: 64px; margin-bottom: 16px; }
+  .painel-inicio h1 {
+    margin: 0 0 12px 0;
+    font-size: clamp(30px, 6vw, 48px);
+    line-height: 1.15;
+    color: #e8c26a;
+  }
+  .subtitulo { font-size: 18px; opacity: 0.82; margin-bottom: 10px; }
+  .creditos { font-size: 13px; opacity: 0.5; margin-bottom: 30px; }
+  #botao-iniciar {
+    border: none;
+    border-radius: 14px;
+    padding: 18px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #e8c26a;
+    color: #17161d;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  #botao-iniciar:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(232,194,106,0.25); }
+  #botao-iniciar:active { transform: scale(0.98); }
+  .dica { margin-top: 18px; font-size: 13px; opacity: 0.5; }
+
+  @media (max-width: 600px) {
+    .painel-inicio { padding: 32px 18px; }
+    #botao-iniciar { width: 100%; padding: 16px 20px; font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     TELA DE ABERTURA
+     ========================================================= -->
+<div id="tela-inicio">
+  <div class="painel-inicio">
+    <div class="icone-jogo">🏚️</div>
+    <h1>O ENIGMA DA<br>MANSÃO ABANDONADA</h1>
+    <div class="subtitulo">Um jogo de escolhas com vida, inventário e múltiplos finais</div>
+    <div class="creditos">Feito em Python com PyScript</div>
+    <button id="botao-iniciar" type="button">▶ INICIAR JOGO</button>
+    <div class="dica">Clique para começar a aventura e habilitar a trilha sonora.</div>
+  </div>
+</div>
+
+<!-- =========================================================
+     CONTEÚDO DO JOGO
+     ========================================================= -->
+<div class="container">
+
+  <header class="cabecalho">
+    <h1 id="titulo-jogo">O Enigma da Mansão Abandonada</h1>
+    <p id="autor-jogo">Autor: —</p>
+  </header>
+
+  <!-- HUD: vida / pontuação / inventário, atualizado pelo jogo.py -->
+  <div class="hud">
+    <div class="hud-item" id="status-vida">❤️ ❤️ ❤️</div>
+    <div class="hud-item" id="status-pontuacao">⭐ 0 pontos</div>
+    <div class="hud-item" id="status-inventario">🎒 vazio</div>
+  </div>
+
+  <section class="midia">
+    <img id="imagem-cena" src="" alt="Imagem da cena atual">
+    <video id="video-intro" controls preload="metadata">
+      Seu navegador não suporta reprodução de vídeo.
+    </video>
+    <audio id="audio-fundo" controls loop preload="auto">
+      Seu navegador não suporta reprodução de áudio.
+    </audio>
+    <audio id="audio-efeito" preload="auto"></audio>
+    <div class="controle-audio">🔊 Você pode ajustar o volume ou pausar a trilha sonora.</div>
+  </section>
+
+  <section class="terminal">
+    <!--
+      Execução em modo WORKER: obrigatório para o input()
+      funcionar (o PyScript não permite input() bloqueante
+      rodando no thread principal). O mini-coi.js carregado
+      no <head> é o que torna isso possível também no
+      GitHub Pages, sem precisar configurar servidor algum.
+    -->
+    <script type="py" src="./jogo.py" terminal worker service-worker="./mini-coi.js"></script>
+  </section>
+
+</div>
+
+<!-- =========================================================
+     JAVASCRIPT DA PÁGINA (tela inicial + primeiro play do áudio)
+     ========================================================= -->
+<script>
+  const telaInicio = document.getElementById("tela-inicio");
+  const botaoIniciar = document.getElementById("botao-iniciar");
+  const audio = document.getElementById("audio-fundo");
+
+  const trilhaInicial = "assets/audios/trilha_principal.wav";
+
+  botaoIniciar.addEventListener("click", async function () {
+    audio.src = trilhaInicial;
+    audio.loop = true;
+    audio.volume = 0.5;
+
+    try {
+      await audio.play();
+    } catch (erro) {
+      // Alguns navegadores ainda podem bloquear; o jogador pode
+      // apertar o play manualmente no controle de áudio.
+      console.warn("Não foi possível iniciar o áudio automaticamente:", erro);
+    }
+
+    telaInicio.style.display = "none";
+  });
+</script>
+
+</body>
+</html>
