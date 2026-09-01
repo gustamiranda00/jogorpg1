@@ -241,7 +241,7 @@ CENAS = {
     # ---------------------------------------------------------------
     "inicio": {
         "titulo": "A MANSÃO ABANDONADA",
-        "imagem": "assets/imagens/inicio.jpg",
+        "imagem": "imagens/inicio.jpg",
         "audio": "assets/audios/trilha_principal.wav",
         "texto": (
             "Você chegou à velha mansão no fim da rua, seguindo um mapa\n"
@@ -259,7 +259,7 @@ CENAS = {
 
     "entrada_porta": {
         "titulo": "A PORTA DA FRENTE",
-        "imagem": "assets/imagens/entrada_porta.jpg",
+        "imagem": "imagens/entrada_porta.jpg",
         "texto": (
             "A porta range ao ser empurrada. O ar cheira a poeira e\n"
             "madeira velha. Você entra sem chamar atenção."
@@ -271,7 +271,7 @@ CENAS = {
 
     "entrada_janela": {
         "titulo": "A JANELA QUEBRADA",
-        "imagem": "assets/imagens/entrada_janela.jpg",
+        "imagem": "imagens/entrada_janela.jpg",
         "texto": (
             "Você encontra uma janela com o vidro quebrado nos fundos\n"
             "da casa. Ao vasculhar o parapeito, encontra uma lanterna\n"
@@ -286,7 +286,7 @@ CENAS = {
     # --- cena de CONSEQUÊNCIA, separada da escolha que a causou -----
     "corte_vidro": {
         "titulo": "UM CORTE NO BRAÇO",
-        "imagem": "assets/imagens/corte_vidro.jpg",
+        "imagem": "imagens/corte_vidro.jpg",
         "texto": (
             "Ao passar pela janela, um caco de vidro corta seu braço.\n\n"
             "Você sente uma pontada de dor, mas segue em frente com a\n"
@@ -304,7 +304,7 @@ CENAS = {
     # ---------------------------------------------------------------
     "corredor": {
         "titulo": "O CORREDOR PRINCIPAL",
-        "imagem": "assets/imagens/corredor.jpg",
+        "imagem": "imagens/corredor.jpg",
         "texto": (
             "Você está no corredor principal da mansão. Vários caminhos\n"
             "se abrem diante de você: uma porta trancada, um armário\n"
@@ -323,7 +323,7 @@ CENAS = {
     # --- cena de CONSEQUÊNCIA, separada da tentativa ------------------
     "porta_falha": {
         "titulo": "A PORTA REAGE",
-        "imagem": "assets/imagens/porta_falha.jpg",
+        "imagem": "imagens/porta_falha.jpg",
         "texto": (
             "Você tenta forçar a porta trancada.\n\n"
             "Uma descarga elétrica atravessa sua mão, vinda de algum\n"
@@ -338,7 +338,7 @@ CENAS = {
 
     "armario": {
         "titulo": "O ARMÁRIO EMPOEIRADO",
-        "imagem": "assets/imagens/armario.jpg",
+        "imagem": "imagens/armario.jpg",
         "texto": (
             "Dentro do armário, entre teias de aranha, você encontra\n"
             "uma chave de ferro enferrujada."
@@ -351,7 +351,7 @@ CENAS = {
 
     "biblioteca": {
         "titulo": "A BIBLIOTECA SILENCIOSA",
-        "imagem": "assets/imagens/biblioteca.jpg",
+        "imagem": "imagens/biblioteca.jpg",
         "texto": (
             "Estantes tomam o teto. Sobre uma mesa, um diário antigo\n"
             "aguarda, aberto em uma página sobre 'o guardião do porão'."
@@ -365,7 +365,7 @@ CENAS = {
 
     "estante_secreta": {
         "titulo": "A ALAVANCA ESCONDIDA",
-        "imagem": "assets/imagens/estante_secreta.jpg",
+        "imagem": "imagens/estante_secreta.jpg",
         "texto": (
             "Atrás de alguns livros, seus dedos encontram uma pequena\n"
             "alavanca de metal. Puxá-la pode revelar algo... ou não ser\n"
@@ -380,7 +380,7 @@ CENAS = {
     # --- cena de CONSEQUÊNCIA da alavanca ----------------------------
     "estante_desaba": {
         "titulo": "A ESTANTE DESABA",
-        "imagem": "assets/imagens/estante_desaba.jpg",
+        "imagem": "imagens/estante_desaba.jpg",
         "texto": (
             "A alavanca destrava um compartimento secreto, mas também\n"
             "solta a estante inteira sobre você!\n\n"
@@ -403,14 +403,14 @@ CENAS = {
     # ---------------------------------------------------------------
     "porao_entrada": {
         "titulo": "A PORTA DO PORÃO",
-        "imagem": "assets/imagens/porao_entrada.jpg",
+        "imagem": "imagens/porao_entrada.jpg",
         "texto": "Uma porta pesada de madeira bloqueia a escada para o porão.",
         "logica": "checar_chave_porao",
     },
 
     "porao_trancado": {
         "titulo": "TRANCADO",
-        "imagem": "assets/imagens/porao_trancado.jpg",
+        "imagem": "imagens/porao_trancado.jpg",
         "texto": (
             "A porta não se move. Você precisa de uma chave para\n"
             "descer até o porão."
@@ -422,7 +422,7 @@ CENAS = {
 
     "porao_aberto": {
         "titulo": "O PORÃO SECRETO",
-        "imagem": "assets/imagens/porao_aberto.jpg",
+        "imagem": "imagens/porao_aberto.jpg",
         "audio": "assets/audios/trilha_porao.wav",
         "texto": (
             "A chave gira na fechadura. Uma escada leva a uma câmara\n"
@@ -438,7 +438,7 @@ CENAS = {
     # --- cena de CONSEQUÊNCIA de pegar a relíquia --------------------
     "relicario_armadilha": {
         "titulo": "A ARMADILHA DO ALTAR",
-        "imagem": "assets/imagens/relicario_armadilha.jpg",
+        "imagem": "imagens/relicario_armadilha.jpg",
         "texto": (
             "Assim que seus dedos tocam a relíquia, um dardo dispara\n"
             "de uma fenda na parede e atinge seu ombro.\n\n"
@@ -461,7 +461,7 @@ CENAS = {
     # ---------------------------------------------------------------
     "salao_final": {
         "titulo": "O SALÃO PRINCIPAL",
-        "imagem": "assets/imagens/salao_final.jpg",
+        "imagem": "imagens/salao_final.jpg",
         "texto": (
             "Você retorna ao grande salão de entrada. A noite está\n"
             "quase no fim, e é hora de decidir o que fazer com tudo\n"
@@ -476,7 +476,7 @@ CENAS = {
     "fim_bom": {
         "final": True,
         "banner": "🏆 FINAL BOM — O MISTÉRIO REVELADO",
-        "imagem": "assets/imagens/fim_bom.jpg",
+        "imagem": "imagens/fim_bom.jpg",
         "audio": "assets/audios/trilha_final_bom.wav",
         "texto": (
             "Com o diário e a relíquia em mãos, {nome} finalmente\n"
@@ -490,7 +490,7 @@ CENAS = {
     "fim_secreto": {
         "final": True,
         "banner": "✨ FINAL SECRETO — O SEGREDO COMPLETO",
-        "imagem": "assets/imagens/fim_secreto.jpg",
+        "imagem": "imagens/fim_secreto.jpg",
         "audio": "assets/audios/trilha_final_bom.wav",
         "texto": (
             "Diário, relíquia e medalhão, juntos, revelam um quarto\n"
@@ -504,7 +504,7 @@ CENAS = {
     "fim_neutro": {
         "final": True,
         "banner": "🌫️ FINAL NEUTRO — UMA SAÍDA PARCIAL",
-        "imagem": "assets/imagens/fim_neutro.jpg",
+        "imagem": "imagens/fim_neutro.jpg",
         "texto": (
             "Você escapa da mansão com parte da verdade em mãos, mas\n"
             "sente que ainda há perguntas sem resposta.\n\n"
@@ -515,7 +515,7 @@ CENAS = {
     "fim_alternativo": {
         "final": True,
         "banner": "🌙 FINAL ALTERNATIVO — DE MÃOS VAZIAS",
-        "imagem": "assets/imagens/fim_alternativo.jpg",
+        "imagem": "imagens/fim_alternativo.jpg",
         "texto": (
             "Você decide que não vale a pena arriscar mais nada.\n"
             "Sai da mansão de mãos vazias, sem relíquias nem respostas,\n"
@@ -527,7 +527,7 @@ CENAS = {
     "fim_ruim": {
         "final": True,
         "banner": "💀 FINAL RUIM — A MANSÃO VENCE",
-        "imagem": "assets/imagens/fim_ruim.jpg",
+        "imagem": "imagens/fim_ruim.jpg",
         "audio": "assets/audios/trilha_final_ruim.wav",
         "texto": (
             "Ferimento após ferimento, suas forças finalmente se\n"

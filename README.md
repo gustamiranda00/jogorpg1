@@ -34,7 +34,7 @@ O jogo é **orientado a dados**: cada cena é uma entrada no dicionário
 ```python
 "porta_falha": {
     "titulo": "A porta reage",
-    "imagem": "assets/imagens/porta_falha.jpg",
+    "imagem": "imagens/porta_falha.jpg",
     "texto": (
         "Você tenta forçar a porta.\n\n"
         "Uma descarga atravessa sua mão.\n\n"
@@ -114,20 +114,20 @@ A escolha do final acontece na função `checar_final()`, chamada pela cena
 Funções já prontas em `jogo.py` (não precisam ser alteradas):
 
 ```python
-mostrar_imagem("assets/imagens/cena.jpg")
+mostrar_imagem("imagens/cena.jpg")
 esconder_imagem()
 
 tocar_audio("assets/audios/trilha.wav")   # troca a trilha de fundo
 parar_audio()
 tocar_efeito("assets/audios/efeito.wav")   # efeito curto, sem parar a trilha
 
-mostrar_video("assets/imagens/introducao.mp4")
+mostrar_video("imagens/introducao.mp4")
 esconder_video()
 ```
 
 ## 🎨 Sobre os assets incluídos
 
-As imagens (`assets/imagens/*.jpg`) e os áudios (`assets/audios/*.wav`)
+As imagens (`imagens/*.jpg`) e os áudios (`assets/audios/*.wav`)
 deste projeto foram **gerados automaticamente como placeholders**
 (imagens com título da cena, áudios com tons sintetizados) só para o
 jogo já funcionar "out of the box". Fique à vontade para substituir
