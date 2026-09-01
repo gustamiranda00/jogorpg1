@@ -130,7 +130,7 @@ def aplicar_efeito(efeito):
         "pontos": 10,
         "ganhar_item": "chave",
         "perder_item": "lanterna",
-        "som": "assets/audios/efeito_dano.wav",
+        "som": "audios/efeito_dano.wav",
     }
     """
     if not efeito:
@@ -242,7 +242,7 @@ CENAS = {
     "inicio": {
         "titulo": "A MANSÃO ABANDONADA",
         "imagem": "imagens/inicio.jpg",
-        "audio": "assets/audios/trilha_principal.wav",
+        "audio": "audios/trilha_principal.wav",
         "texto": (
             "Você chegou à velha mansão no fim da rua, seguindo um mapa\n"
             "encontrado entre os pertences do seu avô.\n\n"
@@ -277,7 +277,7 @@ CENAS = {
             "da casa. Ao vasculhar o parapeito, encontra uma lanterna\n"
             "esquecida — mas os cacos de vidro estão por toda parte."
         ),
-        "efeito": {"ganhar_item": "lanterna", "som": "assets/audios/efeito_item.wav"},
+        "efeito": {"ganhar_item": "lanterna", "som": "audios/efeito_item.wav"},
         "opcoes": [
             ("Entrar com cuidado mesmo assim", "corte_vidro"),
         ],
@@ -293,7 +293,7 @@ CENAS = {
             "lanterna em mãos.\n\n"
             "Você perdeu uma vida."
         ),
-        "efeito": {"vida": -1, "som": "assets/audios/efeito_dano.wav"},
+        "efeito": {"vida": -1, "som": "audios/efeito_dano.wav"},
         "opcoes": [
             ("Continuar para o corredor principal", "corredor"),
         ],
@@ -330,7 +330,7 @@ CENAS = {
             "mecanismo escondido na fechadura.\n\n"
             "Você perdeu uma vida."
         ),
-        "efeito": {"vida": -1, "som": "assets/audios/efeito_dano.wav"},
+        "efeito": {"vida": -1, "som": "audios/efeito_dano.wav"},
         "opcoes": [
             ("Voltar ao corredor", "corredor"),
         ],
@@ -343,7 +343,7 @@ CENAS = {
             "Dentro do armário, entre teias de aranha, você encontra\n"
             "uma chave de ferro enferrujada."
         ),
-        "efeito": {"ganhar_item": "chave", "pontos": 5, "som": "assets/audios/efeito_item.wav"},
+        "efeito": {"ganhar_item": "chave", "pontos": 5, "som": "audios/efeito_item.wav"},
         "opcoes": [
             ("Voltar ao corredor", "corredor"),
         ],
@@ -356,7 +356,7 @@ CENAS = {
             "Estantes tomam o teto. Sobre uma mesa, um diário antigo\n"
             "aguarda, aberto em uma página sobre 'o guardião do porão'."
         ),
-        "efeito": {"ganhar_item": "diario", "pontos": 10, "som": "assets/audios/efeito_item.wav"},
+        "efeito": {"ganhar_item": "diario", "pontos": 10, "som": "audios/efeito_item.wav"},
         "opcoes": [
             ("Vasculhar a estante ao fundo", "estante_secreta"),
             ("Voltar ao corredor", "corredor"),
@@ -391,7 +391,7 @@ CENAS = {
             "vida": -1,
             "pontos": 20,
             "ganhar_item": "medalhao",
-            "som": "assets/audios/efeito_dano.wav",
+            "som": "audios/efeito_dano.wav",
         },
         "opcoes": [
             ("Voltar ao corredor", "corredor"),
@@ -423,7 +423,7 @@ CENAS = {
     "porao_aberto": {
         "titulo": "O PORÃO SECRETO",
         "imagem": "imagens/porao_aberto.jpg",
-        "audio": "assets/audios/trilha_porao.wav",
+        "audio": "audios/trilha_porao.wav",
         "texto": (
             "A chave gira na fechadura. Uma escada leva a uma câmara\n"
             "de pedra, iluminada por um altar ao centro, onde repousa\n"
@@ -449,7 +449,7 @@ CENAS = {
             "vida": -1,
             "pontos": 30,
             "ganhar_item": "reliquia",
-            "som": "assets/audios/efeito_dano.wav",
+            "som": "audios/efeito_dano.wav",
         },
         "opcoes": [
             ("Voltar ao corredor", "corredor"),
@@ -477,7 +477,7 @@ CENAS = {
         "final": True,
         "banner": "🏆 FINAL BOM — O MISTÉRIO REVELADO",
         "imagem": "imagens/fim_bom.jpg",
-        "audio": "assets/audios/trilha_final_bom.wav",
+        "audio": "audios/trilha_final_bom.wav",
         "texto": (
             "Com o diário e a relíquia em mãos, {nome} finalmente\n"
             "entende a história da mansão: a relíquia era a chave para\n"
@@ -491,7 +491,7 @@ CENAS = {
         "final": True,
         "banner": "✨ FINAL SECRETO — O SEGREDO COMPLETO",
         "imagem": "imagens/fim_secreto.jpg",
-        "audio": "assets/audios/trilha_final_bom.wav",
+        "audio": "audios/trilha_final_bom.wav",
         "texto": (
             "Diário, relíquia e medalhão, juntos, revelam um quarto\n"
             "segredo que ninguém havia encontrado em cem anos: a\n"
@@ -528,7 +528,7 @@ CENAS = {
         "final": True,
         "banner": "💀 FINAL RUIM — A MANSÃO VENCE",
         "imagem": "imagens/fim_ruim.jpg",
-        "audio": "assets/audios/trilha_final_ruim.wav",
+        "audio": "audios/trilha_final_ruim.wav",
         "texto": (
             "Ferimento após ferimento, suas forças finalmente se\n"
             "esgotam. Você desaba no chão empoeirado do corredor.\n\n"
